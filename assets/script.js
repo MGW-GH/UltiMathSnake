@@ -9,6 +9,10 @@ let board;
 let snakeX = cellSize * Math.floor(Math.random()*columns);
 let snakeY = cellSize * Math.floor(Math.random()*rows);
 
+let velocityX = 0;
+let velocityY = 0;
+
+
 // food
 let foodX = cellSize * Math.floor(Math.random()*columns);
 let foodY = cellSize * Math.floor(Math.random()*rows);
@@ -20,6 +24,7 @@ window.onload = function() {
     context = board.getContext("2d");
 
     placeFood();
+    document.addEventListener("keyup", changeDirection);
     update();
 
 }
@@ -41,7 +46,30 @@ function update() {
 
 function placeFood() {
     do {
-        foodX = cellSize * Math.floor(Math.random() * columns);
-        foodY = cellSize * Math.floor(Math.random() * rows);
+        foodX;
+        foodY;
     } while (foodX === snakeX && foodY === snakeY);  // Ensure food doesn't overlap with the snake
 }
+
+function changeDirection(e) {
+    if (e.code == "ArrowUp") {
+        velocityX = 0;
+        velocityY = -1;
+    }
+
+    else if (e.code == "ArrowDown") {
+        velocityX = 0;
+        velocityY = 1;
+    }
+
+    else if (e.code == "ArrowLeft") {
+        velocityX = -1;
+        velocityY = 0;
+    }
+
+    else if (e.code == "ArrowRight") {
+        velocityX = 1;
+        velocityY = 0;
+    }
+}
+
