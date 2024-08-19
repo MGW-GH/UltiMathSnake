@@ -12,4 +12,11 @@ body {
     text-align: center;
     font-weight: 200;
     color: blueviolet;
+    margin-top: 30px;
+    text-decoration: underline;
+    text-decoration-color: lime;
+}
+
+#board {
+    margin-top: 30px;
 }
