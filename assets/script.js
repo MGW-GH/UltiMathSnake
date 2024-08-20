@@ -6,6 +6,8 @@ let context;
 let board;
 
 
+
+
 // snake
 let snakeX = cellSize * Math.floor(Math.random()*columns);
 let snakeY = cellSize * Math.floor(Math.random()*rows);
@@ -60,9 +62,10 @@ function update() {
 
     context.fillStyle = "red";
     context.font ="15px Arial";
-    context.fillText(Math.floor(Math.random()*50), answerX, answerY, cellSize);
-    context.fillText(Math.floor(Math.random()*50), incorrectX, incorrectY, cellSize);
+    context.fillText(missingNumber, answerX, answerY, cellSize);
+    context.fillText(Y, incorrectX, incorrectY, cellSize);
 
+    
 }
 
 function placeNumbers() {
@@ -108,11 +111,6 @@ function runGame(gameType) {
 
     let answer = eval(equation);
 
-    document.getElementById("X").textContent = X;
-    document.getElementById("Y").textContent = Y;
-    document.getElementById("operator").textContent = operator;
-    document.getElementById("answer").textContent = answer;
-
 
     if (gameType === "addition") {
         displayAdditionQuestion(X, Y);
@@ -129,6 +127,7 @@ function runGame(gameType) {
     
     return answer;
 }
+
 
 function sumType(gameType) {
     let operator;
@@ -148,16 +147,34 @@ function sumType(gameType) {
 
 function displayAdditionQuestion(X, Y) {
 
-    document.getElementById('X').textContent = X;
-    document.getElementById('Y').textContent = Y;
+    const eqArr = ["X", "Y", "X", "Y", "X", "A"];
+    let missingNumber = eqArr[(Math.floor(Math.random() * eqArr.length))];
     document.getElementById('operator').textContent = "+";
-    
+
+    if(missingNumber === "X") {
+        document.getElementById('X').textContent = "?";
+        document.getElementById('Y').textContent = Y;
+        document.getElementById('answer').textContent = X + Y;
+
+    } else if (missingNumber === "Y") {
+        document.getElementById('X').textContent = X;
+        document.getElementById('Y').textContent = "?";
+        document.getElementById('answer').textContent = X + Y;
+
+    } else {
+        document.getElementById('X').textContent = X;
+        document.getElementById('Y').textContent = Y;
+        document.getElementById('answer').textContent = "?";
+    }
+
+    return missingNumber;
 }
 
 function displaySubtractQuestion(X, Y) {
     document.getElementById('X').textContent = X;
     document.getElementById('Y').textContent = Y;
     document.getElementById('operator').textContent = "-";
+    document.getElementById('answer').textContent = X - Y;
 
 }
 
@@ -165,14 +182,14 @@ function displayMultiplyQuestion(X, Y) {
     document.getElementById('X').textContent = X;
     document.getElementById('Y').textContent = Y;
     document.getElementById('operator').textContent = "x";
-    
+    document.getElementById('answer').textContent = X * Y;
 }
 
 function displayDivideQuestion(X, Y) {
     document.getElementById('X').textContent = X;
     document.getElementById('Y').textContent = Y;
     document.getElementById('operator').textContent = "/";
-    
+    document.getElementById('answer').textContent = X / Y;
 }
 
    /* function sumType() {
