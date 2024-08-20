@@ -65,7 +65,7 @@ function update() {
     snakeBody.push({x: snakeX, y: snakeY});
 
 
-    if (snakeX === answerX && snakeY === answerY) {
+    if (snakeX === answerX && snakeY === (answerY - cellSize)) {
 
 
         // Call the appropriate function to generate a new math question
