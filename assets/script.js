@@ -29,7 +29,8 @@ window.onload = function() {
 
     placeNumbers();
     document.addEventListener("keyup", changeDirection);
-    setInterval(update, 1000/10); 
+    setInterval(update, 1000/10);
+    
 
 }
 
@@ -95,3 +96,86 @@ function changeDirection(e) {
     }
 }
 
+function runGame(gameType) {
+
+    // Creates two random numbers between 0 and 24
+    let X = Math.floor(Math.random() * 25);
+    let Y = Math.floor(Math.random() * 25);
+
+    let operator = sumType(gameType);
+
+    let equation = `${X} ${operator} ${Y}`;
+
+    let answer = eval(equation);
+
+    document.getElementById("X").textContent = X;
+    document.getElementById("Y").textContent = Y;
+    document.getElementById("operator").textContent = operator;
+    document.getElementById("answer").textContent = answer;
+
+
+    if (gameType === "addition") {
+        displayAdditionQuestion(X, Y);
+    } else if (gameType === "subtract") {
+        displaySubtractQuestion(X, Y);
+    } else if (gameType === "multiply") {
+        displayMultiplyQuestion(X, Y);
+    } else if (gameType === "division") {
+        displayDivideQuestion(X, Y); 
+    } else {
+        alert(`Unknown game type: ${gameType}`);
+        throw `Unknown game type: ${gameType}. Aborting!`;
+    }
+    
+    return answer;
+}
+
+function sumType(gameType) {
+    let operator;
+    if(gameType === "addition"){
+        operator = "+";
+    } else if (gameType === "subtract"){
+        operator = "-";
+    } else if (gameType === "multiply"){
+        operator = "*";
+    } else if (gameType === "division"){
+        operator = "/";
+    } else {
+        throw `Unknown operator for game type: ${gameType}`;
+    }
+    return operator;
+}
+
+function displayAdditionQuestion(X, Y) {
+
+    document.getElementById('X').textContent = X;
+    document.getElementById('Y').textContent = Y;
+    document.getElementById('operator').textContent = "+";
+    
+}
+
+function displaySubtractQuestion(X, Y) {
+    document.getElementById('X').textContent = X;
+    document.getElementById('Y').textContent = Y;
+    document.getElementById('operator').textContent = "-";
+
+}
+
+function displayMultiplyQuestion(X, Y) {
+    document.getElementById('X').textContent = X;
+    document.getElementById('Y').textContent = Y;
+    document.getElementById('operator').textContent = "x";
+    
+}
+
+function displayDivideQuestion(X, Y) {
+    document.getElementById('X').textContent = X;
+    document.getElementById('Y').textContent = Y;
+    document.getElementById('operator').textContent = "/";
+    
+}
+
+   /* function sumType() {
+    return operators[(Math.floor(Math.random()*operators.length))];
+    }
+    */

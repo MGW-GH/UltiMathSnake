@@ -112,13 +112,13 @@ h1 {
 
 /* question line */
 .question-area {
-    width: 90%;
+    width: 100%;
     font-size: 2rem;
     margin: auto;
     padding: 5px 0;
     color:grey;
     font-family: "Arial", sans-serif;
-    font-weight: 1000;
+    font-weight: 700;
 }
 
 .question-area span {
