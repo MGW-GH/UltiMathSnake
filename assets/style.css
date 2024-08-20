@@ -124,3 +124,20 @@ h1 {
 .question-area span {
     padding: 0 15px;
 }
+
+/* Operator colors */
+#operator.blue {
+    color: blue;
+}
+
+#operator.orange {
+    color: orange;
+}
+
+#operator.red {
+    color: red;
+}
+
+#operator.green {
+    color: green;
+}
