@@ -5,7 +5,7 @@ const columns = 22;
 let context;
 let board;
 let hiddenAnswer;
-
+let wrongAnswer;
 
 
 
@@ -63,11 +63,9 @@ function update() {
     context.fill();
 
     context.fillStyle = "red";
-    context.font ="15px Arial";
-    context.fillText(hiddenAnswer, answerX, answerY, cellSize);
-    context.fillText(Y, incorrectX, incorrectY, cellSize);
-
-    
+    context.font = "15px Arial";
+    context.fillText(hiddenAnswer, answerX, answerY);
+    context.fillText(wrongAnswer, incorrectX, incorrectY);
 }
 
 function placeNumbers() {
@@ -152,12 +150,14 @@ function displayAdditionQuestion(X, Y) {
     const eqArr = ["X", "Y", "X", "Y", "X", "A"];
     let missingNumber = eqArr[(Math.floor(Math.random() * eqArr.length))];
     document.getElementById('operator').textContent = "+";
+    
 
     if(missingNumber === "X") {
         document.getElementById('X').textContent = "?";
         document.getElementById('Y').textContent = Y;
         document.getElementById('answer').textContent = X + Y;
         hiddenAnswer = X;
+        wrongAnswer = Math.floor((Math.random()-0.5)*10) + hiddenAnswer;
         return X;
         
 
@@ -165,14 +165,20 @@ function displayAdditionQuestion(X, Y) {
         document.getElementById('X').textContent = X;
         document.getElementById('Y').textContent = "?";
         document.getElementById('answer').textContent = X + Y;
+        hiddenAnswer = Y;
+        wrongAnswer = Math.floor((Math.random()-0.5)*10) + hiddenAnswer;
+        return Y;
 
     } else {
         document.getElementById('X').textContent = X;
         document.getElementById('Y').textContent = Y;
         document.getElementById('answer').textContent = "?";
+        hiddenAnswer = X+Y;
+        wrongAnswer = Math.floor((Math.random()-0.5)*10) + hiddenAnswer;
+        return X+Y;
     }
 
-    return missingNumber;
+
 }
 
 function displaySubtractQuestion(X, Y) {
