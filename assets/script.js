@@ -4,6 +4,8 @@ const rows = 28;
 const columns = 22;
 let context;
 let board;
+let hiddenAnswer;
+
 
 
 
@@ -62,7 +64,7 @@ function update() {
 
     context.fillStyle = "red";
     context.font ="15px Arial";
-    context.fillText(missingNumber, answerX, answerY, cellSize);
+    context.fillText(hiddenAnswer, answerX, answerY, cellSize);
     context.fillText(Y, incorrectX, incorrectY, cellSize);
 
     
@@ -155,6 +157,9 @@ function displayAdditionQuestion(X, Y) {
         document.getElementById('X').textContent = "?";
         document.getElementById('Y').textContent = Y;
         document.getElementById('answer').textContent = X + Y;
+        hiddenAnswer = X;
+        return X;
+        
 
     } else if (missingNumber === "Y") {
         document.getElementById('X').textContent = X;
