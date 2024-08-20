@@ -17,6 +17,8 @@ let snakeY = cellSize * Math.floor(Math.random()*rows);
 let velocityX = 0;
 let velocityY = 0;
 
+let snakeBody = [{x: snakeX, y: snakeY}];
+
 
 // numbers
 let answerX = cellSize * Math.floor(Math.random()*columns);
@@ -55,45 +57,76 @@ function update() {
     context.fillStyle = "black";
     context.fillRect(0, 0, board.width, board.height);
 
-    context.fillStyle = "Lime";
+    // Update snake's position
     snakeX += velocityX * cellSize;
     snakeY += velocityY * cellSize;
-    context.beginPath();
-    context.arc(snakeX + cellSize / 2, snakeY + cellSize / 2, cellSize / 1.5, 0, Math.PI * 2);
-    context.fill();
+
+    // Add new head pos to snake's body
+    snakeBody.push({x: snakeX, y: snakeY});
+
+
+    if (snakeX === answerX && snakeY === answerY) {
+
+
+        // Call the appropriate function to generate a new math question
+        let gameType = document.getElementById('operator').textContent;
+        if (gameType === "+") {
+            displayAdditionQuestion(Math.floor(Math.random() * 25), Math.floor(Math.random() * 25));
+        } else if (gameType === "-") {
+            displaySubtractQuestion(Math.floor(Math.random() * 25), Math.floor(Math.random() * 25));
+        } else if (gameType === "x") {
+            displayMultiplyQuestion(Math.floor(Math.random() * 25), Math.floor(Math.random() * 25));
+        } else if (gameType === "/") {
+            displayDivideQuestion(Math.floor(Math.random() * 25), Math.floor(Math.random() * 25));
+        }
+
+        // Reposition the answers
+        placeNumbers();
+    } else {
+        // If thr snake didn't eat the answer, remove last part
+        snakeBody.shift();
+    }
+
+    //Draw the snake
+    context.fillStyle = "Lime";
+    for (let i = 0; i < snakeBody.length; i++) {
+        context.fillRect(snakeBody[i].x, snakeBody[i].y, cellSize, cellSize);
+    }
 
     context.fillStyle = "red";
-    context.font = "15px Arial";
+    context.font = "15px Arial";``
     context.fillText(hiddenAnswer, answerX, answerY);
     context.fillText(wrongAnswer, incorrectX, incorrectY);
 }
 
 function placeNumbers() {
     do {
-        answerX;
-        answerY;
-        incorrectX;
-        incorrectY;
+        answerX = cellSize * Math.floor(Math.random() * columns);
+        answerY = cellSize * Math.floor(Math.random() * rows);
+        incorrectX = cellSize * Math.floor(Math.random() * columns);
+        incorrectY = cellSize * Math.floor(Math.random() * rows);
+        
+
     } while ((answerX === snakeX && answerY === snakeY) || (incorrectX === snakeX && incorrectY === snakeY) || (answerX === incorrectX && incorrectY === snakeY));  // Ensure food doesn't overlap with the snake
 }
 
 function changeDirection(e) {
-    if (e.code == "ArrowUp") {
+    if (e.code == "ArrowUp" && velocityY != 1) {
         velocityX = 0;
         velocityY = -1;
     }
 
-    else if (e.code == "ArrowDown") {
+    else if (e.code == "ArrowDown" && velocityY != -1) {
         velocityX = 0;
         velocityY = 1;
     }
 
-    else if (e.code == "ArrowLeft") {
+    else if (e.code == "ArrowLeft" && velocityX != 1) {
         velocityX = -1;
         velocityY = 0;
     }
 
-    else if (e.code == "ArrowRight") {
+    else if (e.code == "ArrowRight" && velocityX != -1) {
         velocityX = 1;
         velocityY = 0;
     }
@@ -102,8 +135,10 @@ function changeDirection(e) {
 function runGame(gameType) {
 
     // Creates two random numbers between 0 and 24
+    
     let X = Math.floor(Math.random() * 25);
     let Y = Math.floor(Math.random() * 25);
+
 
     let operator = sumType(gameType);
 
@@ -124,6 +159,7 @@ function runGame(gameType) {
         alert(`Unknown game type: ${gameType}`);
         throw `Unknown game type: ${gameType}. Aborting!`;
     }
+    
     
     return answer;
 }
