@@ -6,6 +6,9 @@ let context;
 let board;
 let hiddenAnswer;
 let wrongAnswer;
+let scoreTally = 0;
+
+
 
 
 
@@ -65,8 +68,10 @@ function update() {
     snakeBody.push({x: snakeX, y: snakeY});
 
 
-    if (snakeX === answerX && snakeY === answerY) {
+    if (snakeX === answerX && snakeY === (answerY - cellSize)) {
 
+        // Update score
+        score();
 
         // Call the appropriate function to generate a new math question
         let gameType = document.getElementById('operator').textContent;
@@ -82,9 +87,11 @@ function update() {
 
         // Reposition the answers
         placeNumbers();
-    } else {
+        } else {
         // If thr snake didn't eat the answer, remove last part
         snakeBody.shift();
+
+        
     }
 
     //Draw the snake
@@ -141,6 +148,21 @@ function runGame(gameType) {
 
 
     let operator = sumType(gameType);
+    let operatorElement = document.getElementById('operator');
+
+    // Remove any existing color classes
+    operatorElement.classList.remove('blue', 'orange', 'red', 'green');
+
+    // Add a new class based on the selected game type
+    if (gameType === "addition") {
+        operatorElement.classList.add('green');
+    } else if (gameType === "subtract") {
+        operatorElement.classList.add('blue');
+    } else if (gameType === "multiply") {
+        operatorElement.classList.add('orange');
+    } else if (gameType === "division") {
+        operatorElement.classList.add('red');
+    }
 
     let equation = `${X} ${operator} ${Y}`;
 
@@ -327,5 +349,14 @@ function displayDivideQuestion(X, Y) {
 
    /* function sumType() {
     return operators[(Math.floor(Math.random()*operators.length))];
+    } */
+
+
+// score
+function score() {
+    if (snakeX === answerX && snakeY === (answerY - cellSize)) {
+        scoreTally += 1;
+        document.getElementById('score').textContent = (scoreTally * scoreTally) + (scoreTally - 1);
+
     }
-    */
+}
