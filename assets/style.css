@@ -13,7 +13,7 @@ body {
     font-weight: 100;
     color: rgb(35, 148, 13);
     font-size: 1rem;
-    margin: 30px 0;
+    margin: 10px 0;
     background-color: antiquewhite;
     
     
@@ -30,21 +30,97 @@ body {
 }
 
 #board {
-    margin-top: 30px;
-    margin-bottom: 30px;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 #header {
     color: red;
-    font-size: 3rem;
+    font-size: 3.5rem;
+    margin-bottom: 20px;
 
 }
     
 h1 {
     background-color: rgba(241, 207, 57, 0.5);
-    width: 200px;
+    width: 300px;
     margin: 5px auto;
     border-radius: 50%;
-    font-size: 1.6em;
+    font-size: 2rem;
     text-align: top;
   }
+
+/* operator buttons */
+.controls-area {
+    display: flex;
+    justify-content: center; /* Center buttons horizontally */
+    align-items: top; /* Align items to the bottom (if needed) */
+    gap: 30px; /* Space between buttons */
+    margin-top: 25px;
+}
+
+.btn {
+    width: 45px;
+    height: 35px;
+    border-radius: 50%; /* Make buttons round */
+
+}
+
+.btn--blue {
+    border-color: blue;
+    color: blue;
+}
+
+.btn--blue:active,
+.btn--blue:hover {
+    background-color: darkblue;
+    color: white;
+}
+
+.btn--orange {
+    border-color: orange;
+    color: orange;
+}
+
+.btn--orange:active,
+.btn--orange:hover {
+    background-color: darkorange;
+    color: white;
+}
+
+.btn--red {
+    border-color: red;
+    color: red;
+}
+
+.btn--red:active,
+.btn--red:hover {
+    background-color: rgb(166, 1, 1);
+    color: white;
+}
+
+.btn--green {
+    border-color: green;
+    color: green;
+}
+
+.btn--green:active,
+.btn--green:hover {
+    background-color: darkgreen;
+    color: white;
+}
+
+/* question line */
+.question-area {
+    width: 100%;
+    font-size: 2rem;
+    margin: auto;
+    padding: 5px 0;
+    color:grey;
+    font-family: "Arial", sans-serif;
+    font-weight: 700;
+}
+
+.question-area span {
+    padding: 0 15px;
+}
