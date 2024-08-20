@@ -182,25 +182,111 @@ function displayAdditionQuestion(X, Y) {
 }
 
 function displaySubtractQuestion(X, Y) {
-    document.getElementById('X').textContent = X;
-    document.getElementById('Y').textContent = Y;
+
+    const eqArr = ["X", "Y", "X", "Y", "X", "A"];
+    let missingNumber = eqArr[(Math.floor(Math.random() * eqArr.length))];
     document.getElementById('operator').textContent = "-";
-    document.getElementById('answer').textContent = X - Y;
+    
+
+    if(missingNumber === "X") {
+        document.getElementById('X').textContent = "?";
+        document.getElementById('Y').textContent = Y;
+        document.getElementById('answer').textContent = X - Y;
+        hiddenAnswer = X;
+        wrongAnswer = Math.floor((Math.random()-0.5)*10) + hiddenAnswer;
+        return X;
+        
+
+    } else if (missingNumber === "Y") {
+        document.getElementById('X').textContent = X;
+        document.getElementById('Y').textContent = "?";
+        document.getElementById('answer').textContent = X - Y;
+        hiddenAnswer = Y;
+        wrongAnswer = Math.floor((Math.random()-0.5)*10) + hiddenAnswer;
+        return Y;
+
+    } else {
+        document.getElementById('X').textContent = X;
+        document.getElementById('Y').textContent = Y;
+        document.getElementById('answer').textContent = "?";
+        hiddenAnswer = X-Y;
+        wrongAnswer = Math.floor((Math.random()-0.5)*10) + hiddenAnswer;
+        return X-Y;
+    }
+
 
 }
 
 function displayMultiplyQuestion(X, Y) {
-    document.getElementById('X').textContent = X;
-    document.getElementById('Y').textContent = Y;
+
+    const eqArr = ["X", "Y", "X", "Y", "X", "A"];
+    let missingNumber = eqArr[(Math.floor(Math.random() * eqArr.length))];
     document.getElementById('operator').textContent = "x";
-    document.getElementById('answer').textContent = X * Y;
+    
+
+    if(missingNumber === "X") {
+        document.getElementById('X').textContent = "?";
+        document.getElementById('Y').textContent = Y;
+        document.getElementById('answer').textContent = X * Y;
+        hiddenAnswer = X;
+        wrongAnswer = Math.floor((Math.random()-0.5)*10) + hiddenAnswer;
+        return X;
+        
+
+    } else if (missingNumber === "Y") {
+        document.getElementById('X').textContent = X;
+        document.getElementById('Y').textContent = "?";
+        document.getElementById('answer').textContent = X * Y;
+        hiddenAnswer = Y;
+        wrongAnswer = Math.floor((Math.random()-0.5)*10) + hiddenAnswer;
+        return Y;
+
+    } else {
+        document.getElementById('X').textContent = X;
+        document.getElementById('Y').textContent = Y;
+        document.getElementById('answer').textContent = "?";
+        hiddenAnswer = X*Y;
+        wrongAnswer = Math.floor((Math.random()-0.5)*10) + hiddenAnswer;
+        return X*Y;
+    }
+
+
 }
 
 function displayDivideQuestion(X, Y) {
-    document.getElementById('X').textContent = X;
-    document.getElementById('Y').textContent = Y;
+
+    const eqArr = ["X", "Y", "X", "Y", "X", "A"];
+    let missingNumber = eqArr[(Math.floor(Math.random() * eqArr.length))];
     document.getElementById('operator').textContent = "/";
-    document.getElementById('answer').textContent = X / Y;
+    
+
+    if(missingNumber === "X") {
+        document.getElementById('X').textContent = "?";
+        document.getElementById('Y').textContent = Y;
+        document.getElementById('answer').textContent = X / Y;
+        hiddenAnswer = X;
+        wrongAnswer = Math.floor((Math.random()-0.5)*10) + hiddenAnswer;
+        return X;
+        
+
+    } else if (missingNumber === "Y") {
+        document.getElementById('X').textContent = X;
+        document.getElementById('Y').textContent = "?";
+        document.getElementById('answer').textContent = X / Y;
+        hiddenAnswer = Y;
+        wrongAnswer = Math.floor((Math.random()-0.5)*10) + hiddenAnswer;
+        return Y;
+
+    } else {
+        document.getElementById('X').textContent = X;
+        document.getElementById('Y').textContent = Y;
+        document.getElementById('answer').textContent = "?";
+        hiddenAnswer = X/Y;
+        wrongAnswer = Math.floor((Math.random()-0.5)*10) + hiddenAnswer;
+        return X/Y;
+    }
+
+
 }
 
    /* function sumType() {
