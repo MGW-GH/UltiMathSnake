@@ -13,9 +13,12 @@ let velocityX = 0;
 let velocityY = 0;
 
 
-// food
-let foodX = cellSize * Math.floor(Math.random()*columns);
-let foodY = cellSize * Math.floor(Math.random()*rows);
+// numbers
+let answerX = cellSize * Math.floor(Math.random()*columns);
+let answerY = cellSize * Math.floor(Math.random()*rows);
+
+let incorrectX = cellSize * Math.floor(Math.random()*columns);
+let incorrectY = cellSize * Math.floor(Math.random()*rows);
 
 window.onload = function() {
     board = document.getElementById("board");
@@ -23,9 +26,9 @@ window.onload = function() {
     board.width = columns * cellSize;
     context = board.getContext("2d");
 
-    placeFood();
+    placeNumbers();
     document.addEventListener("keyup", changeDirection);
-    update();
+    setInterval(update, 1000/10);
 
 }
 
@@ -34,21 +37,26 @@ function update() {
     context.fillRect(0, 0, board.width, board.height);
 
     context.fillStyle = "Lime";
+    snakeX += velocityX * cellSize;
+    snakeY += velocityY * cellSize;
     context.beginPath();
     context.arc(snakeX + cellSize / 2, snakeY + cellSize / 2, cellSize / 1.5, 0, Math.PI * 2);
     context.fill();
-    
+
     context.fillStyle = "red";
-    context.beginPath();
-    context.arc(foodX + cellSize / 2, foodY + cellSize / 2, cellSize / 3, 0, Math.PI * 2);
-    context.fill();
+    context.font ="15px Arial";
+    context.fillText(Math.floor(Math.random()*50), answerX, answerY, cellSize);
+    context.fillText(Math.floor(Math.random()*50), incorrectX, incorrectY, cellSize);
+
 }
 
-function placeFood() {
+function placeNumbers() {
     do {
-        foodX;
-        foodY;
-    } while (foodX === snakeX && foodY === snakeY);  // Ensure food doesn't overlap with the snake
+        answerX;
+        answerY;
+        incorrectX;
+        incorrectY;
+    } while ((answerX === snakeX && answerY === snakeY) || (incorrectX === snakeX && incorrectY === snakeY) || (answerX === incorrectX && incorrectY === snakeY));  // Ensure food doesn't overlap with the snake
 }
 
 function changeDirection(e) {

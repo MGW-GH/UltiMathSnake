@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Snake</title>
+    <title>MathSnake</title>
     <link rel="stylesheet" href="assets/style.css">
     <script src="assets/script.js"></script>
     <script src="https://kit.fontawesome.com/113b4afe07.js" crossorigin="anonymous"></script>
@@ -13,7 +13,22 @@
     <link rel="manifest" href="assets/images/site.webmanifest">
 </head>
 <body>
-    <h1><span id="header"><i class="fa-solid fa-staff-snake"></i></span>nake</h1>
+    <h1>Math <span id="header"><i class="fa-solid fa-staff-snake"></i></span>nake</h1>
+
+    <div class="controls-area">
+        <button data-type="addition" class="btn btn--big btn--green">
+            <i class="fas fa-plus"></i>
+        </button>
+        <button data-type="subtract" class="btn btn--big btn--blue">
+            <i class="fas fa-minus"></i>
+        </button>
+        <button data-type="multiply" class="btn btn--big btn--orange">
+            <i class="fas fa-times"></i>
+        </button>
+        <button data-type="division" class="btn btn--big btn--red">
+                <i class="fas fa-divide"></i>
+        </button>
+    </div>
 
     <div id="div">
     <canvas id="board"></canvas>

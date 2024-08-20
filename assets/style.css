@@ -30,8 +30,8 @@ body {
 }
 
 #board {
-    margin-top: 30px;
-    margin-bottom: 30px;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 #header {
@@ -48,3 +48,63 @@ h1 {
     font-size: 1.6em;
     text-align: top;
   }
+
+/* operator buttons */
+.controls-area {
+    display: flex;
+    justify-content: center; /* Center buttons horizontally */
+    align-items: top; /* Align items to the bottom (if needed) */
+    gap: 35px; /* Space between buttons */
+    margin-top: 25px;
+}
+
+.btn {
+    width: 45px;
+    height: 35px;
+    border-radius: 50%; /* Make buttons round */
+
+}
+
+.btn--blue {
+    border-color: blue;
+    color: blue;
+}
+
+.btn--blue:active,
+.btn--blue:hover {
+    background-color: darkblue;
+    color: white;
+}
+
+.btn--orange {
+    border-color: orange;
+    color: orange;
+}
+
+.btn--orange:active,
+.btn--orange:hover {
+    background-color: darkorange;
+    color: white;
+}
+
+.btn--red {
+    border-color: red;
+    color: red;
+}
+
+.btn--red:active,
+.btn--red:hover {
+    background-color: rgb(166, 1, 1);
+    color: white;
+}
+
+.btn--green {
+    border-color: green;
+    color: green;
+}
+
+.btn--green:active,
+.btn--green:hover {
+    background-color: darkgreen;
+    color: white;
+}
