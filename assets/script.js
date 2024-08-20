@@ -1,9 +1,10 @@
 // board
 const cellSize = 14;
-const rows = 32;
+const rows = 28;
 const columns = 22;
 let context;
 let board;
+
 
 // snake
 let snakeX = cellSize * Math.floor(Math.random()*columns);
@@ -28,9 +29,22 @@ window.onload = function() {
 
     placeNumbers();
     document.addEventListener("keyup", changeDirection);
-    setInterval(update, 1000/10);
+    setInterval(update, 1000/10); 
 
 }
+
+document.addEventListener("DOMContentLoaded", function() {
+    let buttons = document.getElementsByTagName("button");
+
+    for (let button of buttons) {
+        button.addEventListener("click", function() {
+            let gameType = this.getAttribute("data-type");
+                runGame(gameType);
+        });  
+    }
+
+    runGame("addition");
+});
 
 function update() {
     context.fillStyle = "black";

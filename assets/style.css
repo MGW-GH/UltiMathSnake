@@ -13,7 +13,7 @@ body {
     font-weight: 100;
     color: rgb(35, 148, 13);
     font-size: 1rem;
-    margin: 30px 0;
+    margin: 10px 0;
     background-color: antiquewhite;
     
     
@@ -36,16 +36,17 @@ body {
 
 #header {
     color: red;
-    font-size: 3rem;
+    font-size: 3.5rem;
+    margin-bottom: 20px;
 
 }
     
 h1 {
     background-color: rgba(241, 207, 57, 0.5);
-    width: 200px;
+    width: 300px;
     margin: 5px auto;
     border-radius: 50%;
-    font-size: 1.6em;
+    font-size: 2rem;
     text-align: top;
   }
 
@@ -54,7 +55,7 @@ h1 {
     display: flex;
     justify-content: center; /* Center buttons horizontally */
     align-items: top; /* Align items to the bottom (if needed) */
-    gap: 35px; /* Space between buttons */
+    gap: 30px; /* Space between buttons */
     margin-top: 25px;
 }
 
@@ -107,4 +108,19 @@ h1 {
 .btn--green:hover {
     background-color: darkgreen;
     color: white;
+}
+
+/* question line */
+.question-area {
+    width: 90%;
+    font-size: 2rem;
+    margin: auto;
+    padding: 5px 0;
+    color:grey;
+    font-family: "Arial", sans-serif;
+    font-weight: 1000;
+}
+
+.question-area span {
+    padding: 0 15px;
 }
