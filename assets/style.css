@@ -48,6 +48,7 @@ h1 {
     border-radius: 50%;
     font-size: 2rem;
     text-align: top;
+    text-shadow: 1px 1px 0 red;
   }
 
 /* operator buttons */
@@ -121,12 +122,18 @@ h1 {
     margin: auto;
     padding: 5px 0;
     color:grey;
+    text-shadow: 1px 1px 0 white;
     font-family: "Arial", sans-serif;
     font-weight: 700;
 }
 
 .question-area span {
     padding: 0 15px;
+}
+
+#equals {
+    color:black;
+    text-shadow: 1px 1px 0 grey;
 }
 
 /* Default operator style */
@@ -156,6 +163,7 @@ h1 {
 /* score */
 .score-area {
     font-size: 1.5rem;
+    text-shadow: 1px 1px 0 red;
 }
 
 /* Touch controls */
