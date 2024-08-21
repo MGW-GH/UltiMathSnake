@@ -21,49 +21,56 @@ Detailing the existing and planned features and the value they bring.
 
 - __Canvas (Snake Board)__
 
-  - The review section will allow the user to leave feedback on the site helping to identify which parts of the site are giving the user the most value and lead to updates to bring the user back to the site in the future.
-  - It will allow the user to sign up for a monthly newsletter with further recipes from their favourite country by entering name and email details.
-  - This ecourages the user to stay connected with Taste the World and provides added value with further recipes.
+  - The canvas is created so the game can be played/drawn on top of it acting as the board that the snake will travel on.
+  - Good contrast of colors makes it easy to see all the pipeces drawn on the canvas.
+  - Good contrast to the remainder of the body, clearly visible where the board starts and stops.
+  - 
 
 <img src="assets/images/canvas].png">
 
 - __Equation__ 
 
-  - The footer section includes links to the relevant social media sites for Taste the World. The links will open to a new tab to allow easy navigation for the user. 
-  - The footer is valuable to the user as it encourages them to keep connected via social media
+  - The equation appears in the form 'X (operator chosen) Y = Z' with one of the elements replaced by a '?' and the corresponsding answer, as well as one incorrect answer, are randomly placed on the canvas.
+  - When either of the answers are eaten a new equation will generate with the same operator as before.
+  - The operator will change when a different one is selected above.
 
 <img src="assets/images/equation.png">
 
 - __Score__
 
-  - These pages are the crux of the site with the information that the user really wants. It will give an concise intro into the country and its cuisine with one recipe laid out with ingredients and method.
-  - A vegetarian or vegan option will be included alongside each recipe.
-  - A quote will be included after the recipe in the countries language (and in english).
-  - It will include a background image of the countries colours.
+  - The score appears below the equation is updated as the game is played.
+  - Good color scheme linking it the header.
+  - Calculated to get exponentially bigger as more correct answers are consumed.
 
 <img src="assets/images/scoe.png">
 
-- __Direction control & Snake Growth__
+- __Direction control__
 
-  - These pages are the crux of the site with the information that the user really wants. It will give an concise intro into the country and its cuisine with one recipe laid out with ingredients and method.
-  - A vegetarian or vegan option will be included alongside each recipe.
-  - A quote will be included after the recipe in the countries language (and in english).
-  - It will include a background image of the countries colours.
+  - A change direction function is used to allow the user to control the direction of the snake without it being able to go in the opposite direction.
+  - The snake can be controlled by touch using the arrow buttons or by using arrows on a keyboard.
+  - This makes the game viable for users of any device.
 
-<img src="assets/images/touchdirections.png"> <img src="assets/images/grow.png">
+<img src="assets/images/touchdirections.png"> 
+
+- __Snake Growth__
+- Functionality that increases the size of the snake when the correct answer is eaten.
 
 
 ### Features Left to Implement
 
 - __Score erosion__
 
-  - Including links on the different cuisine pages that takes the user to more recipes based on the chosen cuisine.
+  - Include function to reduce score when eating the wrong answer.
 
 - __Enemy Snake__
-  - Use bootstrap to create a pop-out feature where users can enter their details and subscribe to monthly emails with more recipes. This is a better user experience.
+  - Create a function where eating the wrong answer generates a snake which increases in size as more wrong answers are eaten.
+  - This will need to include functionality to change direction when the real snake changes direction and the new direction will be randomly generated.
+  - Add a game over function which runs if there is some specific form of contact between the snakes.
   
 - __Walls__
-  - jvedj
+  - Include a function that also runs a game over function when the snake's head leaves the canvas.
+- __Head-on-Snake__
+  - Include functionality so the game over fucntion is also called if the snake's head comes into contact with intself.
 
 
 
