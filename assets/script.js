@@ -1,6 +1,6 @@
 // board
 const cellSize = 14;
-const rows = 28;
+const rows = 26;
 const columns = 22;
 let context;
 let board;
@@ -101,7 +101,7 @@ function update() {
     }
 
     context.fillStyle = "red";
-    context.font = "15px Arial";``
+    context.font = "15px Arial";
     context.fillText(hiddenAnswer, answerX, answerY);
     context.fillText(wrongAnswer, incorrectX, incorrectY);
 }
@@ -113,6 +113,20 @@ function placeNumbers() {
         incorrectX = cellSize * Math.floor(Math.random() * columns);
         incorrectY = cellSize * Math.floor(Math.random() * rows);
         
+        // Ensure that the answers are not too close to the top or bottom edges
+        if (answerY < cellSize) {
+            answerY += cellSize;
+        }
+        if (answerY > (rows - 1) * cellSize) {
+            answerY -= cellSize;
+        }
+        
+        if (incorrectY < cellSize) {
+            incorrectY += cellSize;
+        }
+        if (incorrectY > (rows - 1) * cellSize) {
+            incorrectY -= cellSize;
+        }
 
     } while ((answerX === snakeX && answerY === snakeY) || (incorrectX === snakeX && incorrectY === snakeY) || (answerX === incorrectX && incorrectY === snakeY));  // Ensure food doesn't overlap with the snake
 }

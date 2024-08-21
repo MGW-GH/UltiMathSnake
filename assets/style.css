@@ -127,7 +127,7 @@ h1 {
 
 /* Default operator style */
 #operator {
-    font-size: 3rem;
+    
     font-weight: bold;
 }
 
@@ -147,4 +147,48 @@ h1 {
 
 #operator.green {
     color: green;
+}
+
+/* score */
+.score-area {
+    font-size: 1.5rem;
+}
+
+/* Touch controls */
+#touch-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    gap: 5px; /* Space between left/middle/right */
+}
+
+/* Vertical controls for Up and Down */
+#vertical-controls {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+
+
+#up-btn {
+    width: 50px;
+    height: 25px;
+}
+
+
+#left-btn {
+    width: 25px;
+    height: 50px;
+}
+
+#down-btn {
+    width: 50px;
+    height: 25px;
+}
+
+#right-btn {
+    width: 25px;
+    height: 50px;
 }
