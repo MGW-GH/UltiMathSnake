@@ -1,6 +1,6 @@
 // board
 const cellSize = 14;
-const rows = 28;
+const rows = 26;
 const columns = 22;
 let context;
 let board;
