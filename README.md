@@ -1,10 +1,10 @@
-# Taste the World 
-## MACteam
+# MathSnake 
+## Matt W
 
-Taste the World is a website that aims to aid those in the quest for culinary excellence and cultural knowledge. The site will target people with an interest in food; from the food lover looking for new cusine to try to the skilled chef looking to add new recipes to their arsenal. It will also entice people interested in the culture of other countries through the food they make.
+MathSnake is an interactive webpage combining the classic snake game with an added maths element to create an effective and fun maths brain training game.
 
 
-![Responsive Mockup](https://github.com/lucyrush/readme-template/blob/master/media/love_running_mockup.png)
+<img src="assets/images/mathsnakescreenshot.png">
 
 ## Features 
 
@@ -12,54 +12,59 @@ Detailing the existing and planned features and the value they bring.
 
 ### Existing Features
 
-- __Navigation Bar__
+- __Operator Buttons__
 
-  - Found on all  pages, the full responsive navigation bar includes links to the Home, Japanese, Ukrainian and Moroccan pages as well as a local link to the Review section on each page to allow for easy navigation.
-  - This section will allow the user to navigate from page to page across all devices without having to revert back to the previous page via the ‘back’ button.
-  - The use of the active style selector will enable the user to know the page they are currently on by underlining it.
+  - The operator buttons allow the user to choose which type of sum they want and indicates the operator that's been chosen by highlighting.
+  - Simple and effective design that draws the user into interacting with the page.
 
-<img src="assets/images/Screenshot 2024-08-01 2.16.00 PM.png">
+<img src="assets/images/operators.png">
 
-- __Home page background image__
-
-  - The home page includes a background image of a world map with text overlay to allow the user to see the website heading and get an undertanding of the site.
-  - This section introduces the user to Taste the World with an eye catching background image to grab their attention.
-
-<img src="assets/images/Cuisine of the World.jpg">
-
-- __Review section__
+- __Canvas (Snake Board)__
 
   - The review section will allow the user to leave feedback on the site helping to identify which parts of the site are giving the user the most value and lead to updates to bring the user back to the site in the future.
   - It will allow the user to sign up for a monthly newsletter with further recipes from their favourite country by entering name and email details.
   - This ecourages the user to stay connected with Taste the World and provides added value with further recipes.
 
-<img src="assets/images/Screenshot 2024-08-01 2.16.27 PM.png">
+<img src="assets/images/canvas].png">
 
-- __The Footer__ 
+- __Equation__ 
 
   - The footer section includes links to the relevant social media sites for Taste the World. The links will open to a new tab to allow easy navigation for the user. 
   - The footer is valuable to the user as it encourages them to keep connected via social media
 
-<img src="assets/images/Screenshot 2024-07-31 7.35.44 PM.png">
+<img src="assets/images/equation.png">
 
-- __The Cusines pages__
+- __Score__
 
   - These pages are the crux of the site with the information that the user really wants. It will give an concise intro into the country and its cuisine with one recipe laid out with ingredients and method.
   - A vegetarian or vegan option will be included alongside each recipe.
   - A quote will be included after the recipe in the countries language (and in english).
   - It will include a background image of the countries colours.
 
-<img src="assets/images/Screenshot 2024-07-31 7.37.39 PM.png">
+<img src="assets/images/scoe.png">
+
+- __Direction control & Snake Growth__
+
+  - These pages are the crux of the site with the information that the user really wants. It will give an concise intro into the country and its cuisine with one recipe laid out with ingredients and method.
+  - A vegetarian or vegan option will be included alongside each recipe.
+  - A quote will be included after the recipe in the countries language (and in english).
+  - It will include a background image of the countries colours.
+
+<img src="assets/images/touchdirections.png"> <img src="assets/images/grow.png">
 
 
 ### Features Left to Implement
 
-- __Links to food restaurants__
+- __Score erosion__
 
   - Including links on the different cuisine pages that takes the user to more recipes based on the chosen cuisine.
 
-- __Review/subscribe pop-out__
+- __Enemy Snake__
   - Use bootstrap to create a pop-out feature where users can enter their details and subscribe to monthly emails with more recipes. This is a better user experience.
+  
+- __Walls__
+  - jvedj
+
 
 
 ## UX/UI
