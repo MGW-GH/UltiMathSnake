@@ -7,7 +7,7 @@ let board;
 let hiddenAnswer;
 let wrongAnswer;
 let scoreTally = 0;
-
+let gameOver = false;
 
 
 
@@ -71,6 +71,11 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 function update() {
+    if (gameOver) {
+        return;
+    }
+
+
     context.fillStyle = "black";
     context.fillRect(0, 0, board.width, board.height);
 
@@ -80,6 +85,8 @@ function update() {
 
     // Add new head pos to snake's body
     snakeBody.push({x: snakeX, y: snakeY});
+
+    
 
 
     if (snakeX === answerX && snakeY === (answerY - cellSize)) {
@@ -114,10 +121,23 @@ function update() {
         context.fillRect(snakeBody[i].x, snakeBody[i].y, cellSize, cellSize);
     }
 
+    // Draw the answers
     context.fillStyle = "red";
     context.font = "15px Arial";
     context.fillText(hiddenAnswer, answerX, answerY);
     context.fillText(wrongAnswer, incorrectX, incorrectY);
+
+    // game over conditions
+    if (snakeX < 0 || snakeX > columns*cellSize ||snakeY < 0 || snakeY > rows*cellSize) {
+        alert("GAME OVER!");
+    }
+
+    for (let i = 0; i < snakeBody.length; i++) {
+        if (snakeX == snakeBody[i][0] && snakeY == snakeBody[i][1]) {
+            gameOver = true;
+            alert("GAME OVER!");
+        }
+    }
 }
 
 function placeNumbers() {

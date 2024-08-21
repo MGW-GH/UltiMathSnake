@@ -69,6 +69,7 @@ Detailing the existing and planned features and the value they bring.
   
 - __Walls__
   - Include a function that also runs a game over function when the snake's head leaves the canvas.
+  
 - __Head-on-Snake__
   - Include functionality so the game over fucntion is also called if the snake's head comes into contact with intself.
 
