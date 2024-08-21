@@ -13,7 +13,7 @@ body {
     font-weight: 100;
     color: rgb(35, 148, 13);
     font-size: 1rem;
-    margin: 10px 0;
+    margin: 0;
     background-color: antiquewhite;
     
     
@@ -30,8 +30,8 @@ body {
 }
 
 #board {
-    margin-top: 20px;
-    margin-bottom: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 #header {
@@ -44,7 +44,7 @@ body {
 h1 {
     background-color: rgba(241, 207, 57, 0.5);
     width: 300px;
-    margin: 5px auto;
+    margin: 0px auto;
     border-radius: 50%;
     font-size: 2rem;
     text-align: top;
@@ -56,7 +56,7 @@ h1 {
     justify-content: center; /* Center buttons horizontally */
     align-items: top; /* Align items to the bottom (if needed) */
     gap: 30px; /* Space between buttons */
-    margin-top: 25px;
+    margin-top: 10px;
 }
 
 .btn {
