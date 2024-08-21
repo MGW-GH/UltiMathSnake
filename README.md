@@ -138,7 +138,7 @@ Detailing the existing and planned features and the value they bring.
 
 - JavaScript
   
-  - 47 warnings were found when passing the js code through Hint
+  - 47 warnings were found when passing the js code through Hint, but 0 errors [JS Hint]
 
 <img src="assets/images/hint.png">
 
