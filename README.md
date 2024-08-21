@@ -12,6 +12,12 @@ Detailing the existing and planned features and the value they bring.
 
 ### Existing Features
 
+- __Favicon__
+  
+  - The favicon depicts a snake and see on the windows tab. It makes the web page more attractive to users.
+  
+<img src="assets/images/tabsnake.png">
+
 - __Operator Buttons__
 
   - The operator buttons allow the user to choose which type of sum they want and indicates the operator that's been chosen by highlighting.
@@ -117,18 +123,24 @@ Detailing the existing and planned features and the value they bring.
 ### Validator Testing 
 
 - HTML
-  - No errors were returned when passing through the official [W3C validator] 
+  - No errors were returned when passing through the official [W3C html validator] 
   
   <img src="assets/images/htmltest.png">
 
 - CSS
-  - 2 errors were found and just 1 warning when passing through the official [(Jigsaw) validator]
+  - 2 errors were found and just 1 warning when passing through the official [W3C Jigsaw validator]
 
 <img src="assets/images/cssfail.png">
 
   - Updated CSS with no errors
 
 <img src="assets/images/csstestsuccess.png">
+
+- JavaScript
+  
+  - 47 warnings were found when passing the js code through Hint
+
+<img src="assets/images/hint.png">
 
 
 ## Deployment
@@ -140,7 +152,7 @@ This section describes the process we went through to deploy the project to GitH
   - From the source section drop-down menu, select the Master Branch
   - Once the master branch has been selected, the page will be automatically refreshed with a detailed ribbon display to indicate the successful deployment. 
 
-The live link can be found here - https://code-institute-org.github.io/love-running-2.0/index.html 
+The live link can be found here - https://mgw-gh.github.io/Hackathon2MW/
 
 
 ## Credits 
