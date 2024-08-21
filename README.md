@@ -79,20 +79,18 @@ Detailing the existing and planned features and the value they bring.
 
 - __UX__
 
-  The site will be presented as simple but attractive and easy to navigate. Users can find their preferred cuisine with some culinary history and a recipe to follow. Users who want further interaction can leave a review or subscribe to receive monthly comms with new recipes based on their favourite cuisine.
+  The site will be presented as fun and engaging. Users can choose their preferred mathematical operator which will generate an equation. The board in central drawing the user in to play the game. A score is provided and easily seen whilst playing, with direction buttons below for ease of use to mobiles users.
 
 - __User Stories__
 
-  - As a user of this website, I want to easily navigate to my desired cuisine without scrolling down the whole page.
-  - As a user, I want to find new recipes that I can cook at home.
-  - As a user, I want to know which page I'm on so it's easier to navigate.
-  - As a user, I want to be able to read the content easily so that I understand and like visiting the site.
-  - As a user, I want to be able to follow links to more receipes based on my preferred cuisine.
-  - As a user, I want to see pictures of the receipes so I can see what I'm going to cook.
-  - As a user, I want to see vegetarian options so that I can use the recipes for vegetarians.
-  - As the product owner, I want to be able to add and remove receipes so the site is constantly updating and giving the user more value.
-  - As the product owner, I would like the site to be responsive to all devices small to large so that the uer has the best experience regardless of device.
-  - As the product owner, I would like to receive feedback from users so we can update the site for improved user experience.
+  - As a user of this website, I want to easily be able to play the game.
+  - As a user, I want to see my score as I play.
+  - As a user, I want the game to work as anticipated.
+  - As a user, I want to be able to see the content of the game clearly.
+  - As a user, I want the game to have a game over scenario.
+  - As a user, I want to be able to use touch to control the game directions.
+  - As a user, I want the game to fit my device screen.
+  - As the product owner, I want the game to work as expected.
 
 - __Wireframes__
 <img src="assets/images/Screenshot 2024-07-30 at 15.14.09.png">
@@ -102,22 +100,35 @@ Detailing the existing and planned features and the value they bring.
 
 ## Testing 
 
-- __iPad view__
-<img src="assets/images/IMG_6126.jpg">
-<img src="assets/images/IMG_6127.jpg">
-<img src="assets/images/IMG_6129.jpg">
 
 - __Lighthouse__
   - The lighthouse test is used to give a score for performance, SEO, accessibility and best practices.
-  - We returned scores of 74, 91, 91 & 100 respectively meaning the performance could be improved as our hero image takes 7.8 secs to load.
-  <img src="assets/images/Screenshot 2024-08-01 at 13.27.26.png">
+  
+  <img src="assets/images/lighthouse.png">
+
+  - Returned scores of 74, 91, 91 & 100 respectively meaning the performance could be improved as our hero image takes 7.8 secs to load.
+
+  <img src="assets/images/lighthouseperfroamnc.png">
+
+  - You can use the timeframe option to test the performance whilst the game is being played.
+  
+  <img src="assets/images/lighthousetimeframe.png">
 
 ### Validator Testing 
 
 - HTML
-  - No errors were returned when passing through the official [W3C validator] <img src="assets/images/Screenshot 2024-08-01 at 13.23.19.png">
+  - No errors were returned when passing through the official [W3C validator] 
+  
+  <img src="assets/images/htmltest.png">
+
 - CSS
-  - No errors were found but 16 warnings when passing through the official [(Jigsaw) validator]<img src="assets/images/Screenshot 2024-08-01 at 13.23.35.png">
+  - 2 errors were found and just 1 warning when passing through the official [(Jigsaw) validator]
+
+<img src="assets/images/cssfail.png">
+
+  - Updated CSS with no errors
+
+<img src="assets/images/csstestsuccess.png">
 
 
 ## Deployment
