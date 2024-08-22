@@ -1,3 +1,4 @@
+/* font imported (https://fonts.google.com/) */
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&family=Matemasie&family=Oswald:wght@200..700&display=swap');
 
 .matemasie-regular {
@@ -16,17 +17,12 @@ body {
     margin: 0;
     background-color: antiquewhite;
     
-    
-    /* text-decoration: underline;
-    text-decoration-color: red;
-    text-decoration-style: wavy; */
 }
 
+/* board */
 #div {
-    /* background-color: blanchedalmond; */
     width: 100%;
     height: 100%;
-
 }
 
 #board {
@@ -34,13 +30,14 @@ body {
     margin-bottom: 10px;
 }
 
+/* header */
 #header {
     color: red;
     font-size: 3.5rem;
     margin-bottom: 20px;
 
 }
-    
+  
 h1 {
     background-color: rgba(241, 207, 57, 0.5);
     width: 300px;
@@ -50,11 +47,12 @@ h1 {
     text-shadow: 1px 1px 0 red;
   }
 
-/* operator buttons */
+
+/* operator buttons (https://github.com/Code-Institute-Org/love-maths) & (https://chatgpt.com/) */
 .controls-area {
     display: flex;
-    justify-content: center; /* Center buttons horizontally */
-    gap: 30px; /* Space between buttons */
+    justify-content: center;
+    gap: 30px;
     margin-top: 10px;
 }
 
@@ -170,7 +168,7 @@ h1 {
     text-shadow: 1px 1px 0 red;
 }
 
-/* Touch controls */
+/* Touch controls (https://chatgpt.com/) */
 #touch-controls {
     display: flex;
     justify-content: center;
@@ -179,7 +177,7 @@ h1 {
     gap: 5px; /* Space between left/middle/right */
 }
 
-/* Vertical controls for Up and Down */
+/* Vertical controls for Up and Down (https://chatgpt.com/) */
 #vertical-controls {
     display: flex;
     flex-direction: column;
@@ -209,7 +207,7 @@ h1 {
     height: 50px;
 }
 
-
+/* media queries to be implemented */
 @media screen and (min-width: 375px) {
     
 }
