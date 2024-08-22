@@ -10,9 +10,6 @@ let scoreTally = 0;
 let gameOver = false;
 
 
-
-
-
 // snake
 let snakeX = cellSize * Math.floor(Math.random()*columns);
 let snakeY = cellSize * Math.floor(Math.random()*rows);
@@ -31,8 +28,21 @@ let incorrectX = cellSize * Math.floor(Math.random()*columns);
 let incorrectY = cellSize * Math.floor(Math.random()*rows);
 
 
+// Function to adjust board size
+function resize() {
+    if ((window.innerWidth) >= 1024) {     
+    columns = 40;
+    rows = 40;
+    } else {
+        columns = 22;
+        rows = 26;
+    }
+}
+
 // functionality created when window is loaded creating game board and elements and using update function (https://chatgpt.com/) & (https://www.youtube.com/watch?v=baBq5GAL0_U)
 window.onload = function() {
+    resize();
+
     board = document.getElementById("board");
     board.height = rows * cellSize;
     board.width = columns * cellSize;
