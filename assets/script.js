@@ -1,21 +1,23 @@
 // board
-const rows = 26;
-const columns = 22;
+let rows = 26;
+let columns = 22;
 let cellSize = 14;
 
-function resize() {
+/* function resize() {
     if ((window.innerWidth >= 375) && (window.innerWidth < 425)) {
         cellSize = 16;
     } else if ((window.innerWidth >= 425) && (window.innerWidth < 768)) {
         cellSize = 18
     } else if ((window.innerWidth >= 768) && (window.innerWidth < 1024)) {
         cellSize = 25;
+        columns = 26;
     } else if (window.innerWidth >= 1024) {
-        cellSize = 40;
+        cellSize = 30;
+        columns = 26;
     } else {
         cellSize = 14;
     }
-}
+} */
 
 
 
@@ -48,10 +50,10 @@ let incorrectX = cellSize * Math.floor(Math.random()*columns);
 let incorrectY = cellSize * Math.floor(Math.random()*rows);
 
 // Event listener to resize window
-window.addEventListener('resize', resize);
+// window.addEventListener('resize', resize);
 
 window.onload = function() {
-    resize();
+    // resize();
 
     board = document.getElementById("board");
     board.height = rows * cellSize;
@@ -132,11 +134,9 @@ function update() {
 
         // Reposition the answers
         placeNumbers();
-        } else {
+    } else {
         // If the snake didn't eat the answer, remove last part
-        snakeBody.shift();
-
-        
+        snakeBody.shift();   
     }
 
     //Draw the snake
