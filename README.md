@@ -166,6 +166,7 @@ This section will reference any code used from other repositories as well citati
 - parts of the html, css and javascript code for the canvas and game functionality were taken from YouTube (https://www.youtube.com/watch?v=baBq5GAL0_U)
 - Parts of the html, css and javascript code for the operator buttons was taken from Code Institute GitHub repo (https://github.com/Code-Institute-Org/love-maths)
 - Code implemented to problem solve responsivesness taken from chatGPT (https://chatgpt.com/)
+- The text font used was from Google fonts (https://fonts.google.com/)
 
 ### Media
 

@@ -1,26 +1,7 @@
-// board
+// declaring variables
 let rows = 26;
 let columns = 22;
 let cellSize = 14;
-
-/* function resize() {
-    if ((window.innerWidth >= 375) && (window.innerWidth < 425)) {
-        cellSize = 16;
-    } else if ((window.innerWidth >= 425) && (window.innerWidth < 768)) {
-        cellSize = 18
-    } else if ((window.innerWidth >= 768) && (window.innerWidth < 1024)) {
-        cellSize = 25;
-        columns = 26;
-    } else if (window.innerWidth >= 1024) {
-        cellSize = 30;
-        columns = 26;
-    } else {
-        cellSize = 14;
-    }
-} */
-
-
-
 let context;
 let board;
 let hiddenAnswer;
@@ -49,12 +30,9 @@ let answerY = cellSize * Math.floor(Math.random()*rows);
 let incorrectX = cellSize * Math.floor(Math.random()*columns);
 let incorrectY = cellSize * Math.floor(Math.random()*rows);
 
-// Event listener to resize window
-// window.addEventListener('resize', resize);
 
+// functionality created when window is loaded creating game board and elements and using update function (https://chatgpt.com/) & (https://www.youtube.com/watch?v=baBq5GAL0_U)
 window.onload = function() {
-    // resize();
-
     board = document.getElementById("board");
     board.height = rows * cellSize;
     board.width = columns * cellSize;
@@ -83,6 +61,7 @@ window.onload = function() {
 
 }
 
+// event listener for use of operator buttons (https://github.com/Code-Institute-Org/love-maths)
 document.addEventListener("DOMContentLoaded", function() {
     let buttons = document.getElementsByTagName("button");
 
@@ -97,6 +76,7 @@ document.addEventListener("DOMContentLoaded", function() {
     runGame("addition");
 }); 
 
+// update function (https://github.com/Code-Institute-Org/love-maths) & (https://chatgpt.com/)
 function update() {
     if (gameOver) {
         return;
@@ -165,6 +145,7 @@ function update() {
     }
 }
 
+// generate answers
 function placeNumbers() {
     do {
         answerX = cellSize * Math.floor(Math.random() * columns);
@@ -190,6 +171,7 @@ function placeNumbers() {
     } while ((answerX === snakeX && answerY === snakeY) || (incorrectX === snakeX && incorrectY === snakeY) || (answerX === incorrectX && incorrectY === snakeY));  // Ensure food doesn't overlap with the snake
 }
 
+// fucntion to change direction when relevant (https://www.youtube.com/watch?v=baBq5GAL0_U)
 function changeDirection(e) {
 
     if ((e.code == "ArrowUp" || e.target.id === "up-btn") && velocityY != 1) {
@@ -213,6 +195,7 @@ function changeDirection(e) {
     }
 }
 
+// run game function for type of operator (https://github.com/Code-Institute-Org/love-maths)
 function runGame(gameType) {
 
     // Creates two random numbers between 0 and 24
@@ -260,7 +243,7 @@ function runGame(gameType) {
     return answer;
 }
 
-
+// function to return operator value
 function sumType(gameType) {
     let operator;
     if(gameType === "addition"){
@@ -289,13 +272,16 @@ function setActiveBtn(selectedButton) {
     selectedButton.classList.add("active");
 }
 
-
+// keeping the operator button selected with active style (https://chatgpt.com/)
 function keepOperatorSelected() {
     let activeButton = document.querySelector(".btn.active");
     if (activeButton) {
         activeButton.focus();  // Ensure the button remains focused
     }
 }
+
+
+// functions to display the equation with the correct operator chosen
 
 function displayAdditionQuestion(X, Y) {
 
@@ -440,11 +426,6 @@ function displayDivideQuestion(X, Y) {
 
 
 }
-
-   /* function sumType() {
-    return operators[(Math.floor(Math.random()*operators.length))];
-    } */
-
 
 // score
 function score() {

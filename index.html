@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MathSnake</title>
+    <!--link css, js, favicon, fontawesome-->
     <link rel="stylesheet" href="assets/style.css">
     <script src="assets/script.js"></script>
     <script src="https://kit.fontawesome.com/113b4afe07.js" crossorigin="anonymous"></script>
@@ -13,8 +14,10 @@
     <link rel="manifest" href="assets/images/site.webmanifest">
 </head>
 <body>
+    <!--Header-->
     <h1>Math <span id="header"><i class="fa-solid fa-staff-snake"></i></span>nake</h1>
 
+    <!--Create div for opeartor buttons (https://github.com/Code-Institute-Org/love-maths)-->
     <div class="controls-area">
         <button data-type="addition" class="btn btn--big btn--green">
             <i class="fas fa-plus"></i>
@@ -30,10 +33,12 @@
         </button>
     </div>
 
+    <!--Create div for game board canvas (https://www.youtube.com/watch?v=baBq5GAL0_U)-->
     <div id="div">
     <canvas id="board"></canvas>
     </div>
 
+    <!--Create div for question area-->
     <div class="question-area">
         <span id="X">0</span>
         <span id="operator">x</span>
@@ -43,10 +48,12 @@
     </div>
 
 
+    <!--Create div for score area-->
     <div class="score-area">
         <p class="scores">Score: <span id="score">0</span></p>
     </div>
 
+    <!--Create div for touch controls area-->
     <div id="touch-controls">
         
         <button id="left-btn"><i class="fa-solid fa-angle-left"></i></button>
