@@ -401,7 +401,15 @@ function displayMultiplyQuestion(X, Y) {
 
 }
 
+// Division equation with help (https://chatgpt.com/)
 function displayDivideQuestion(X, Y) {
+    if (Y === 0) {
+        Y = 1; // Set a default value to avoid zero division
+    }
+
+    // Calculate the division result and round it to 2 decimal places
+    const result = (X / Y).toFixed(1);
+
 
     const eqArr = ["X", "Y", "X", "Y", "X", "A"];
     let missingNumber = eqArr[(Math.floor(Math.random() * eqArr.length))];
@@ -413,7 +421,7 @@ function displayDivideQuestion(X, Y) {
         document.getElementById('Y').textContent = Y;
         document.getElementById('answer').textContent = X / Y;
         hiddenAnswer = X;
-        wrongAnswer = Math.floor((Math.random()-0.5)*10) + hiddenAnswer;
+        wrongAnswer = (Math.random() * 10 + hiddenAnswer).toFixed(1); // Ensure wrongAnswer is rounded to 2 decimal places
         return X;
         
 
@@ -422,16 +430,16 @@ function displayDivideQuestion(X, Y) {
         document.getElementById('Y').textContent = "?";
         document.getElementById('answer').textContent = X / Y;
         hiddenAnswer = Y;
-        wrongAnswer = Math.floor((Math.random()-0.5)*10) + hiddenAnswer;
+        wrongAnswer = (Math.random() * 10 + hiddenAnswer).toFixed(1); // Ensure wrongAnswer is rounded to 2 decimal places
         return Y;
 
     } else {
         document.getElementById('X').textContent = X;
         document.getElementById('Y').textContent = Y;
         document.getElementById('answer').textContent = "?";
-        hiddenAnswer = X/Y;
-        wrongAnswer = Math.floor((Math.random()-0.5)*10) + hiddenAnswer;
-        return X/Y;
+        hiddenAnswer = parseFloat(result); // Ensure hiddenAnswer is a number
+        wrongAnswer = (Math.random() * 10 + hiddenAnswer).toFixed(1); // Ensure wrongAnswer is rounded to 2 decimal places
+        return parseFloat(result);
     }
 
 
