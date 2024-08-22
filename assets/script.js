@@ -1,7 +1,24 @@
 // board
-const cellSize = 14;
 const rows = 26;
 const columns = 22;
+let cellSize = 14;
+
+function resize() {
+    if ((window.innerWidth >= 375) && (window.innerWidth < 425)) {
+        cellSize = 16;
+    } else if ((window.innerWidth >= 425) && (window.innerWidth < 768)) {
+        cellSize = 18
+    } else if ((window.innerWidth >= 768) && (window.innerWidth < 1024)) {
+        cellSize = 25;
+    } else if (window.innerWidth >= 1024) {
+        cellSize = 40;
+    } else {
+        cellSize = 14;
+    }
+}
+
+
+
 let context;
 let board;
 let hiddenAnswer;
@@ -30,7 +47,12 @@ let answerY = cellSize * Math.floor(Math.random()*rows);
 let incorrectX = cellSize * Math.floor(Math.random()*columns);
 let incorrectY = cellSize * Math.floor(Math.random()*rows);
 
+// Event listener to resize window
+window.addEventListener('resize', resize);
+
 window.onload = function() {
+    resize();
+
     board = document.getElementById("board");
     board.height = rows * cellSize;
     board.width = columns * cellSize;
