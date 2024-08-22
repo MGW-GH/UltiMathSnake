@@ -1,7 +1,24 @@
 // board
-const cellSize = 14;
 const rows = 26;
 const columns = 22;
+let cellSize = 14;
+
+function resize() {
+    if ((window.innerWidth >= 375) && (window.innerWidth < 425)) {
+        cellSize = 16;
+    } else if ((window.innerWidth >= 425) && (window.innerWidth < 768)) {
+        cellSize = 18
+    } else if ((window.innerWidth >= 768) && (window.innerWidth < 1024)) {
+        cellSize = 25;
+    } else if (window.innerWidth >= 1024) {
+        cellSize = 40;
+    } else {
+        cellSize = 14;
+    }
+}
+
+
+
 let context;
 let board;
 let hiddenAnswer;
@@ -30,15 +47,22 @@ let answerY = cellSize * Math.floor(Math.random()*rows);
 let incorrectX = cellSize * Math.floor(Math.random()*columns);
 let incorrectY = cellSize * Math.floor(Math.random()*rows);
 
+// Event listener to resize window
+window.addEventListener('resize', resize);
+
 window.onload = function() {
+    resize();
+
     board = document.getElementById("board");
     board.height = rows * cellSize;
     board.width = columns * cellSize;
     context = board.getContext("2d");
 
     placeNumbers();
+
     // Add event listeners for arrow keys
     document.addEventListener("keyup", changeDirection);
+
     // Add event listeners for touch controls
     document.getElementById('up-btn').addEventListener('click', function(e) {
         changeDirection({ target: e.target });
@@ -63,18 +87,18 @@ document.addEventListener("DOMContentLoaded", function() {
     for (let button of buttons) {
         button.addEventListener("click", function() {
             let gameType = this.getAttribute("data-type");
-                runGame(gameType);
+            runGame(gameType);
+            setActiveBtn(this);
         });  
     }
 
     runGame("addition");
-});
+}); 
 
 function update() {
     if (gameOver) {
         return;
     }
-
 
     context.fillStyle = "black";
     context.fillRect(0, 0, board.width, board.height);
@@ -109,7 +133,7 @@ function update() {
         // Reposition the answers
         placeNumbers();
         } else {
-        // If thr snake didn't eat the answer, remove last part
+        // If the snake didn't eat the answer, remove last part
         snakeBody.shift();
 
         
@@ -130,6 +154,7 @@ function update() {
     // game over conditions
     if (snakeX < 0 || snakeX > columns*cellSize ||snakeY < 0 || snakeY > rows*cellSize) {
         alert("GAME OVER!");
+        gameOver = true;
     }
 
     for (let i = 0; i < snakeBody.length; i++) {
@@ -250,6 +275,26 @@ function sumType(gameType) {
         throw `Unknown operator for game type: ${gameType}`;
     }
     return operator;
+}
+
+// Function to set the active button
+function setActiveBtn(selectedButton) {
+    // Remove the active class from all buttons
+    let buttons = document.getElementsByClassName("btn");
+    for (let button of buttons) {
+        button.classList.remove("active");
+    }
+
+    // Add the active class to the selected button
+    selectedButton.classList.add("active");
+}
+
+
+function keepOperatorSelected() {
+    let activeButton = document.querySelector(".btn.active");
+    if (activeButton) {
+        activeButton.focus();  // Ensure the button remains focused
+    }
 }
 
 function displayAdditionQuestion(X, Y) {
