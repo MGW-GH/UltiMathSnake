@@ -101,9 +101,7 @@ Detailing the existing and planned features and the value they bring.
   - As the product owner, I want the game to work as expected.
 
 - __Wireframes__
-<img src="assets/images/Screenshot 2024-07-30 at 15.14.09.png">
-<img src="assets/images/Screenshot 2024-07-30 at 15.13.56.png">
-<img src="assets/images/Screenshot 2024-07-30 at 15.14.22.png">
+<img src="assets/images/wireframeMS.png">
   
 
 ## Testing 
@@ -172,3 +170,4 @@ This section will reference any code used from other repositories as well citati
 
 - The icon used for the favicon was taken from favicon (https://favicon.io/) 
 - The icon used for the S in the header was taken from fontawesome (https://fontawesome.com/)
+- Wireframe was created using Balsamiq (https://balsamiq.com/)
