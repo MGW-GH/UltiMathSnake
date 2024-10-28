@@ -425,8 +425,12 @@ function displayDivideQuestion(X, Y) {
         Y = 1; // Set a default value to avoid zero division
     }
 
-    // Calculate the division result and round it to 2 decimal places
-    const result = (X / Y).toFixed(1);
+    if (X === 0) {
+        X = -1;
+    }
+
+
+    const result = (X*Y / Y);
 
 
     const eqArr = ["X", "Y", "X", "Y", "X", "A"];
@@ -437,27 +441,33 @@ function displayDivideQuestion(X, Y) {
     if(missingNumber === "X") {
         document.getElementById('X').textContent = "?";
         document.getElementById('Y').textContent = Y;
-        document.getElementById('answer').textContent = X / Y;
-        hiddenAnswer = X;
-        wrongAnswer = (Math.random() * 10 + hiddenAnswer).toFixed(1); // Ensure wrongAnswer is rounded to 2 decimal places
+        document.getElementById('answer').textContent = X*Y / Y;
+        hiddenAnswer = X*Y;
+        do {
+            wrongAnswer = Math.floor((Math.random() - 0.5) * 10) + hiddenAnswer;
+        } while (wrongAnswer === hiddenAnswer);
         return X;
         
 
     } else if (missingNumber === "Y") {
-        document.getElementById('X').textContent = X;
+        document.getElementById('X').textContent = X*Y;
         document.getElementById('Y').textContent = "?";
-        document.getElementById('answer').textContent = X / Y;
+        document.getElementById('answer').textContent = X*Y / Y;
         hiddenAnswer = Y;
-        wrongAnswer = (Math.random() * 10 + hiddenAnswer).toFixed(1); // Ensure wrongAnswer is rounded to 2 decimal places
+        do {
+            wrongAnswer = Math.floor((Math.random() - 0.5) * 10) + hiddenAnswer;
+        } while (wrongAnswer === hiddenAnswer);
         return Y;
 
     } else {
-        document.getElementById('X').textContent = X;
+        document.getElementById('X').textContent = X*Y;
         document.getElementById('Y').textContent = Y;
         document.getElementById('answer').textContent = "?";
-        hiddenAnswer = parseFloat(result); // Ensure hiddenAnswer is a number
-        wrongAnswer = (Math.random() * 10 + hiddenAnswer).toFixed(1); // Ensure wrongAnswer is rounded to 2 decimal places
-        return parseFloat(result);
+        hiddenAnswer = result;
+        do {
+            wrongAnswer = Math.floor((Math.random() - 0.5) * 10) + hiddenAnswer;
+        } while (wrongAnswer === hiddenAnswer);
+        return result;
     }
 
 
