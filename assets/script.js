@@ -305,7 +305,9 @@ function displayAdditionQuestion(X, Y) {
         document.getElementById('Y').textContent = Y;
         document.getElementById('answer').textContent = X + Y;
         hiddenAnswer = X;
-        wrongAnswer = Math.floor((Math.random()-0.5)*10) + hiddenAnswer;
+        do {
+            wrongAnswer = Math.floor((Math.random() - 0.5) * 10) + hiddenAnswer;
+        } while (wrongAnswer === hiddenAnswer);
         return X;
         
 
@@ -314,7 +316,9 @@ function displayAdditionQuestion(X, Y) {
         document.getElementById('Y').textContent = "?";
         document.getElementById('answer').textContent = X + Y;
         hiddenAnswer = Y;
-        wrongAnswer = Math.floor((Math.random()-0.5)*10) + hiddenAnswer;
+        do {
+            wrongAnswer = Math.floor((Math.random() - 0.5) * 10) + hiddenAnswer;
+        } while (wrongAnswer === hiddenAnswer);
         return Y;
 
     } else {
@@ -322,7 +326,9 @@ function displayAdditionQuestion(X, Y) {
         document.getElementById('Y').textContent = Y;
         document.getElementById('answer').textContent = "?";
         hiddenAnswer = X+Y;
-        wrongAnswer = Math.floor((Math.random()-0.5)*10) + hiddenAnswer;
+        do {
+            wrongAnswer = Math.floor((Math.random() - 0.5) * 10) + hiddenAnswer;
+        } while (wrongAnswer === hiddenAnswer);
         return X+Y;
     }
 
@@ -341,7 +347,9 @@ function displaySubtractQuestion(X, Y) {
         document.getElementById('Y').textContent = Y;
         document.getElementById('answer').textContent = X - Y;
         hiddenAnswer = X;
-        wrongAnswer = Math.floor((Math.random()-0.5)*10) + hiddenAnswer;
+        do {
+            wrongAnswer = Math.floor((Math.random() - 0.5) * 10) + hiddenAnswer;
+        } while (wrongAnswer === hiddenAnswer);
         return X;
         
 
@@ -350,7 +358,9 @@ function displaySubtractQuestion(X, Y) {
         document.getElementById('Y').textContent = "?";
         document.getElementById('answer').textContent = X - Y;
         hiddenAnswer = Y;
-        wrongAnswer = Math.floor((Math.random()-0.5)*10) + hiddenAnswer;
+        do {
+            wrongAnswer = Math.floor((Math.random() - 0.5) * 10) + hiddenAnswer;
+        } while (wrongAnswer === hiddenAnswer);
         return Y;
 
     } else {
@@ -358,7 +368,9 @@ function displaySubtractQuestion(X, Y) {
         document.getElementById('Y').textContent = Y;
         document.getElementById('answer').textContent = "?";
         hiddenAnswer = X-Y;
-        wrongAnswer = Math.floor((Math.random()-0.5)*10) + hiddenAnswer;
+        do {
+            wrongAnswer = Math.floor((Math.random() - 0.5) * 10) + hiddenAnswer;
+        } while (wrongAnswer === hiddenAnswer);
         return X-Y;
     }
 
@@ -377,7 +389,9 @@ function displayMultiplyQuestion(X, Y) {
         document.getElementById('Y').textContent = Y;
         document.getElementById('answer').textContent = X * Y;
         hiddenAnswer = X;
-        wrongAnswer = Math.floor((Math.random()-0.5)*10) + hiddenAnswer;
+        do {
+            wrongAnswer = Math.floor((Math.random() - 0.5) * 10) + hiddenAnswer;
+        } while (wrongAnswer === hiddenAnswer);
         return X;
         
 
@@ -386,7 +400,9 @@ function displayMultiplyQuestion(X, Y) {
         document.getElementById('Y').textContent = "?";
         document.getElementById('answer').textContent = X * Y;
         hiddenAnswer = Y;
-        wrongAnswer = Math.floor((Math.random()-0.5)*10) + hiddenAnswer;
+        do {
+            wrongAnswer = Math.floor((Math.random() - 0.5) * 10) + hiddenAnswer;
+        } while (wrongAnswer === hiddenAnswer);
         return Y;
 
     } else {
@@ -394,7 +410,9 @@ function displayMultiplyQuestion(X, Y) {
         document.getElementById('Y').textContent = Y;
         document.getElementById('answer').textContent = "?";
         hiddenAnswer = X*Y;
-        wrongAnswer = Math.floor((Math.random()-0.5)*10) + hiddenAnswer;
+        do {
+            wrongAnswer = Math.floor((Math.random() - 0.5) * 10) + hiddenAnswer;
+        } while (wrongAnswer === hiddenAnswer);
         return X*Y;
     }
 

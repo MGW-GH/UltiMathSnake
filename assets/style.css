@@ -40,12 +40,21 @@ body {
   
 h1 {
     background-color: rgba(241, 207, 57, 0.5);
-    width: 300px;
-    margin: 0px auto;
+    display: inline-block;
+    padding: 10px 30px;
+    margin: 0 auto;
     border-radius: 50%;
-    font-size: 2rem;
+    font-size: 2.25rem;
     text-shadow: 1px 1px 0 red;
-  }
+    text-align: center;
+    line-height: 1;        /* Fine-tune line-height for better vertical centering */
+    height: 40px;
+    width: 450px;
+    vertical-align: middle;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 
 /* operator buttons (https://github.com/Code-Institute-Org/love-maths) & (https://chatgpt.com/) */
