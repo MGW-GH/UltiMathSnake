@@ -142,7 +142,7 @@ function update() {
     context.fillText(wrongAnswer, incorrectX, incorrectY);
 
     // game over conditions
-    if (snakeX < 0 || snakeX > columns*cellSize ||snakeY < 0 || snakeY > rows*cellSize) {
+    if (snakeX < 0 || snakeX > (columns - 1)*cellSize ||snakeY < 0 || snakeY > (rows - 1)*cellSize) {
         alert("GAME OVER!");
         gameOver = true;
     }
