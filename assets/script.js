@@ -17,6 +17,8 @@ let snakeY = cellSize * Math.floor(Math.random()*rows);
 let velocityX = 0;
 let velocityY = 0;
 
+let lastDirection = { x: 0, y: 0 }; // Initial direction is stationary
+
 let snakeBody = [{x: snakeX, y: snakeY}];
 
 
@@ -99,6 +101,9 @@ function update() {
     snakeX += velocityX * cellSize;
     snakeY += velocityY * cellSize;
 
+    // Update `lastDirection` to the current direction
+    lastDirection = { x: velocityX, y: velocityY };
+
     // Add new head pos to snake's body
     snakeBody.push({x: snakeX, y: snakeY});
 
@@ -152,8 +157,8 @@ function update() {
         gameOver = true;
     }
 
-    for (let i = 0; i < snakeBody.length; i++) {
-        if (snakeX == snakeBody[i][0] && snakeY == snakeBody[i][1]) {
+    for (let i = 0; i < (snakeBody.length - 1); i++) {
+        if (snakeX == snakeBody[i].x && snakeY == snakeBody[i].y) {
             gameOver = true;
             alert("GAME OVER!");
         }
@@ -189,22 +194,19 @@ function placeNumbers() {
 // fucntion to change direction when relevant (https://www.youtube.com/watch?v=baBq5GAL0_U)
 function changeDirection(e) {
 
-    if ((e.code == "ArrowUp" || e.target.id === "up-btn") && velocityY != 1) {
+    if ((e.code === "ArrowUp" || e.target.id === "up-btn") && lastDirection.y === 0) {
         velocityX = 0;
         velocityY = -1;
-    }
-
-    else if ((e.code == "ArrowDown" || e.target.id === "down-btn") && velocityY != -1) {
+    } 
+    else if ((e.code === "ArrowDown" || e.target.id === "down-btn") && lastDirection.y === 0) {
         velocityX = 0;
         velocityY = 1;
     }
-
-    else if ((e.code == "ArrowLeft" || e.target.id === "left-btn") && velocityX != 1) {
+    else if ((e.code === "ArrowLeft" || e.target.id === "left-btn") && lastDirection.x === 0) {
         velocityX = -1;
         velocityY = 0;
     }
-
-    else if ((e.code == "ArrowRight" || e.target.id === "right-btn") && velocityX != -1) {
+    else if ((e.code === "ArrowRight" || e.target.id === "right-btn") && lastDirection.x === 0) {
         velocityX = 1;
         velocityY = 0;
     }
