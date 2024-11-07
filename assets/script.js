@@ -8,6 +8,7 @@ let hiddenAnswer;
 let wrongAnswer;
 let scoreTally = 0;
 let gameOver = false;
+let shuffleMode = false;
 
 
 // snake
@@ -53,7 +54,7 @@ window.onload = function() {
     placeNumbers();
 
     // Add event listeners for arrow keys
-    document.addEventListener("keyup", changeDirection);
+    document.addEventListener("keydown", changeDirection);
 
     // Add event listeners for touch controls
     document.getElementById('up-btn').addEventListener('click', function(e) {
@@ -80,6 +81,11 @@ document.addEventListener("DOMContentLoaded", function() {
     for (let button of buttons) {
         button.addEventListener("click", function() {
             let gameType = this.getAttribute("data-type");
+            if (gameType === "shuffle") {
+                shuffleMode = true;
+            } else {
+                shuffleMode = false;
+            }
             runGame(gameType);
             setActiveBtn(this);
         });  
@@ -107,26 +113,26 @@ function update() {
     // Add new head pos to snake's body
     snakeBody.push({x: snakeX, y: snakeY});
 
-    
-
-
     if (snakeX === answerX && snakeY === (answerY - cellSize)) {
 
         // Update score
         score();
 
-        // Call the appropriate function to generate a new math question
-        let gameType = document.getElementById('operator').textContent;
-        if (gameType === "+") {
-            displayAdditionQuestion(Math.floor(Math.random() * 25), Math.floor(Math.random() * 25));
-        } else if (gameType === "-") {
-            displaySubtractQuestion(Math.floor(Math.random() * 25), Math.floor(Math.random() * 25));
-        } else if (gameType === "x") {
-            displayMultiplyQuestion(Math.floor(Math.random() * 25), Math.floor(Math.random() * 25));
-        } else if (gameType === "/") {
-            displayDivideQuestion(Math.floor(Math.random() * 25), Math.floor(Math.random() * 25));
+        if (shuffleMode) {
+            displayShuffleQuestion(Math.floor(Math.random() * 25), Math.floor(Math.random() * 25));
+        } else {
+            // Otherwise, display question based on selected operator
+            let gameType = document.getElementById('operator').textContent;
+            if (gameType === "-") {
+                displaySubtractQuestion(Math.floor(Math.random() * 25), Math.floor(Math.random() * 25));
+            } else if (gameType === "x") {
+                displayMultiplyQuestion(Math.floor(Math.random() * 25), Math.floor(Math.random() * 25));
+            } else if (gameType === "/") {
+                displayDivideQuestion(Math.floor(Math.random() * 25), Math.floor(Math.random() * 25));
+            } else if (gameType === "+") {
+                displayAdditionQuestion(Math.floor(Math.random() * 25), Math.floor(Math.random() * 25));
+            }
         }
-
         // Reposition the answers
         placeNumbers();
     } else {
@@ -194,6 +200,12 @@ function placeNumbers() {
 // fucntion to change direction when relevant (https://www.youtube.com/watch?v=baBq5GAL0_U)
 function changeDirection(e) {
 
+    if (e.code === "ArrowUp" || e.code === "ArrowDown" || e.code === "ArrowLeft" || e.code === "ArrowRight") {
+        e.preventDefault();
+    }
+
+    if (gameOver) return;
+
     if ((e.code === "ArrowUp" || e.target.id === "up-btn") && lastDirection.y === 0) {
         velocityX = 0;
         velocityY = -1;
@@ -242,7 +254,6 @@ function runGame(gameType) {
 
     let answer = eval(equation);
 
-
     if (gameType === "addition") {
         displayAdditionQuestion(X, Y);
     } else if (gameType === "subtract") {
@@ -251,11 +262,9 @@ function runGame(gameType) {
         displayMultiplyQuestion(X, Y);
     } else if (gameType === "division") {
         displayDivideQuestion(X, Y); 
-    } else {
-        alert(`Unknown game type: ${gameType}`);
-        throw `Unknown game type: ${gameType}. Aborting!`;
+    } else if (gameType === "shuffle") {
+        displayShuffleQuestion(X, Y);
     }
-    
     
     return answer;
 }
@@ -271,6 +280,8 @@ function sumType(gameType) {
         operator = "*";
     } else if (gameType === "division"){
         operator = "/";
+    } else if (gameType === "shuffle"){
+        operator = operators[Math.floor(Math.random() * operators.length)];
     } else {
         throw `Unknown operator for game type: ${gameType}`;
     }
@@ -478,6 +489,15 @@ function displayDivideQuestion(X, Y) {
     }
 
 
+}
+
+const operators = ["+", "-", "*", "/"];
+
+const questions = [displayAdditionQuestion, displaySubtractQuestion, displayMultiplyQuestion, displayDivideQuestion];
+
+function displayShuffleQuestion(X, Y) {
+    const randomQuestion = questions[Math.floor(Math.random() * questions.length)];
+    randomQuestion(X, Y);
 }
 
 // score
