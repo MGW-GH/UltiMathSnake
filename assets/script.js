@@ -398,7 +398,13 @@ function displaySubtractQuestion(X, Y) {
 function displayMultiplyQuestion(X, Y) {
 
     const eqArr = ["X", "Y", "X", "Y", "X", "A"];
-    let missingNumber = eqArr[(Math.floor(Math.random() * eqArr.length))];
+    if (Y === 0) {
+        missingNumber = "A";
+    } else if (X === 0) {
+        missingNumber = "A";
+    } else {
+        missingNumber = eqArr[(Math.floor(Math.random() * eqArr.length))];
+    }
     document.getElementById('operator').textContent = "x";
     
 
